@@ -30,16 +30,17 @@ let previousPasswords = [
 
 const passwordValidator = (passwords, prevPasswords) => {
 	let res = [];
-	let regex1 = /[A-Z]/g;
-	let regex2 = /[a-z]/g;
-	let regex3 = /[0-9]/g;
-	let regex4 = /\W/g;
+	const regex1 = /[A-Z]/g;
+	const regex2 = /[a-z]/g;
+	const regex3 = /[0-9]/g;
+	const regex4 = /\W/g;
 	for (let i = 0; i < passwords.length; i++) {
 		if (
 			passwords[i].length >= 5 &&
-			passwords[i].match(regex1).length !== 0 &&
-			passwords[i].match(regex2).length !== 0 &&
-			passwords[i].match(regex4).length !== 0 &&
+			passwords[i].match(regex1) !== null &&
+			passwords[i].match(regex2) !== null &&
+			passwords[i].match(regex3) !== null &&
+			passwords[i].match(regex4) !== null &&
 			!prevPasswords.includes(passwords[i])
 		) {
 			res.push(true);
